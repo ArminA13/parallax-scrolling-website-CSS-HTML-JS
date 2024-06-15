@@ -6,7 +6,9 @@
 
 :root {
     --index: calc(1vw + 1vh);
-    --text: #e7e7e0
+    --text: #e7e7e0;
+    --transition: transform .75s cubic-bezier(.075, .5, 0, 1);
+
 }
 
 @font-face {
@@ -61,6 +63,7 @@ body {
     background-size: cover;
     background-position: center;
     will-change: transform;
+    transition: var(--transition);
     z-index: 2;
 }
 
@@ -80,6 +83,7 @@ body {
 .layer__header {
     z-index: 1;
     transform: translate3d(0, calc(var(--scrollTop) / 2), 0 );
+    transition: var(--transition);
     will-change: transform;
     text-transform: uppercase;
     font-weight: 900;
@@ -96,11 +100,14 @@ body {
 }
 
 .layers__caption {
+    font-size: calc(var(--index) / 1.1);;
+    letter-spacing: calc(var(--index) / 3.5);
+    margin-top: calc(var(--index) * -.75);
+
 
 }
 
 .main-article {
-    /* transform: translate3d(0, calc(var(--scrollTop) / -8), 0); */
     min-height: 100vh;
     background-size: cover;
     background-position: center;
@@ -116,15 +123,22 @@ body {
     text-transform: uppercase;
     font-size: calc(var(--index) * 1.8);
     letter-spacing: calc(var(--index) * .5);
+    margin-top: calc(var(--index) * -8);
     transform: translate3d(0, calc(var(--scrollTop) / 7.5), 0);
+    transition: var(--transition);
     will-change: transform;
 }
 
 .main-article__paragraph {
     transform: translate3d(0, calc(var(--scrollTop) / 7.5), 0);
+    transition: var(--transition);
     max-width: calc(var(--index) * 30);
     font-size: calc(var(--index) * .8);
     margin-top: calc(var(--index) * 1);
+    will-change: transform;
+}
+
+.content {
     will-change: transform;
 }
 
@@ -134,5 +148,4 @@ body {
     opacity: .40;
     font-size: calc(var(--index) * .70);
     letter-spacing: calc(var(--index) * .05);
-
 }
